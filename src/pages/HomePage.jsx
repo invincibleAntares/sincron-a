@@ -26,6 +26,13 @@ function HomePage() {
     navigate(`/editor/${roomId}`, { state: { username } });
   };
 
+  const handleInputEnter = (e) => {
+    if (e.code === 'Enter') {
+      e.preventDefault(); // Prevent form submission
+      joinRoom(e); // Call joinRoom instead of triggering default behavior
+    }
+  };
+
   return (
     <div className="bg-black min-h-screen flex justify-center items-center">
       <form className="bg-gray-800 p-8 rounded-lg shadow-lg space-y-6 w-full max-w-md">
@@ -43,6 +50,7 @@ function HomePage() {
             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={(e) => setRoomId(e.target.value)}
             value={roomId}
+            onKeyUp={handleInputEnter}
           />
           <input
             type="text"
@@ -50,10 +58,11 @@ function HomePage() {
             className="w-full px-4 py-2 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
+            onKeyUp={handleInputEnter}
           />
         </div>
         <button
-          type="button" // Change type to "button"
+          type="button" // Ensure type is "button" to prevent form submission
           onClick={joinRoom}
           className="w-full bg-blue-600 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-md transition duration-200"
         >
@@ -64,6 +73,7 @@ function HomePage() {
           <span>
             If you don't have an invite
             <button
+              type="button" // Ensure type is "button" to prevent form submission
               onClick={createNewRoom}
               className="mx-3 font-2xl text-white hover:text-blue-500"
             >
