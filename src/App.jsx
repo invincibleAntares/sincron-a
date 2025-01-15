@@ -3,9 +3,11 @@ function App() {
 
 
   return (
-    <>
-    <h1>sincronía</h1>
-    </>
+   <>
+   
+       
+   
+   </>
   )
 }
 
