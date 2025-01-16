@@ -10,6 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/basic-setup": "^0.20.0",
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/state": "^6.5.1",
+    "@codemirror/view": "^6.36.2",
+    "@monaco-editor/react": "^4.6.0",
+    "codemirror": "^6.0.1",
     "lucide-react": "^0.471.0",
     "react": "^18.3.1",
     "react-avatar": "^5.0.3",
