@@ -17,7 +17,7 @@ function HomePage() {
   };
 
   const joinRoom = (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
     if (!roomId || !username) {
       toast.error('Please fill all the fields');
       return;
@@ -29,7 +29,7 @@ function HomePage() {
   const handleInputEnter = (e) => {
     if (e.code === 'Enter') {
       e.preventDefault(); // Prevent form submission
-      joinRoom(e); // Call joinRoom instead of triggering default behavior
+      joinRoom(e);
     }
   };
 
