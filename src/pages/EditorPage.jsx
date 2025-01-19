@@ -1,10 +1,25 @@
 import { ListFilter } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Avatar from 'react-avatar';
-import Editor from '../components/Editor';
 import CodeEditor from '../components/Editor';
+import { initSocket } from '../socket';
+import ACTIONS from '../Action';
+import { useLocation } from 'react-router-dom';
 
 function EditorPage() {
+   const location = useLocation();
+   const socketRef = useRef(null);
+   useEffect( ()=>{
+        const init = async()=>{
+            socketRef.current = await initSocket();
+            // socketRef.current.emit(ACTIONS.JOIN,{
+            //   roomId,
+            //   username: location.state?.username,
+            // });
+        };
+        init();
+   },[]);
+
   const [clients, setClients] = useState([
     { socketId: 1, username: 'Hello' },
     { socketId: 2, username: 'Bro' },
